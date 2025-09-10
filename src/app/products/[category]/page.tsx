@@ -1,16 +1,18 @@
 import { notFound } from "next/navigation";
 import { categoryBySlug } from "@/data/categories";
 
-type Props = { params: { category: string } };
+type Props = { params: Promise<{ category: string }> };
 
-export function generateMetadata({ params }: Props) {
-  const data = categoryBySlug[params.category];
+export async function generateMetadata({ params }: Props) {
+  const { category } = await params;
+  const data = categoryBySlug[category];
   if (!data) return {};
   return { title: data.title, description: data.desc };
 }
 
-export default function CategoryPage({ params }: Props) {
-  const data = categoryBySlug[params.category];
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+  const data = categoryBySlug[category];
   if (!data) return notFound();
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
