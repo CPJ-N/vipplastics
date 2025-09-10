@@ -6,45 +6,50 @@ import { useState } from "react";
 import { Menu, Phone, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Products", href: "/products" },
+  { name: "Contact", href: "/contact" },
+];
+
 export function Header() {
   const [open, setOpen] = useState(false);
-  const whatsappHref = "https://wa.me/919000000000";
+  const phoneNumber = "+919999009090";
+  const whatsappHref = `https://wa.me/919999009090`;
+
+  const navLinkClass = "relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full";
+  const mobileNavLinkClass = "px-4 py-3 text-base font-medium text-gray-700 hover:bg-white hover:text-primary transition-colors rounded-md";
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md border-b border-gray-200">
-      {/* Main header */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-24 items-center justify-between gap-4">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/vip_logo.png"
-                alt="VIP Plastics Logo"
-                width={120}
-                height={80}
-                className="object-contain"
-                priority
-              />
-            </Link>
-          </div>
+        <div className="flex h-20 items-center justify-between gap-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/vip_logo.png"
+              alt="VIP Plastics Logo"
+              width={130}
+              height={87}
+              className="object-contain"
+              priority
+            />
+          </Link>
 
-          <nav className="hidden lg:flex items-center gap-10 text-base font-semibold">
-            <Link href="/" className="relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full">
-              Home
-            </Link>
-            <Link href="/about" className="relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full">
-              About
-            </Link>
-            <Link href="/products" className="relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full">
-              Products
-            </Link>
-            <Link href="/contact" className="relative py-2 text-gray-700 hover:text-primary transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full">
-              Contact
-            </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8 text-base font-semibold">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href} className={navLinkClass}>
+                {item.name}
+              </Link>
+            ))}
           </nav>
 
+          {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <Button asChild variant="outline" className="border-secondary text-secondary hover:bg-secondary hover:text-white">
-              <a href="tel:+919000000000" aria-label="Call">
+              <a href={`tel:${phoneNumber}`} aria-label="Call">
                 <Phone className="size-4 mr-2" /> Call Now
               </a>
             </Button>
@@ -55,9 +60,10 @@ export function Header() {
             </Button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
             aria-expanded={open}
           >
@@ -65,24 +71,25 @@ export function Header() {
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {open && (
           <div className="lg:hidden border-t bg-gray-50 py-4">
             <div className="flex flex-col gap-1">
-              <Link href="/" className="px-4 py-3 text-base font-medium text-gray-700 hover:bg-white hover:text-primary transition-colors rounded-md" onClick={() => setOpen(false)}>
-                Home
-              </Link>
-              <Link href="/about" className="px-4 py-3 text-base font-medium text-gray-700 hover:bg-white hover:text-primary transition-colors rounded-md" onClick={() => setOpen(false)}>
-                About
-              </Link>
-              <Link href="/products" className="px-4 py-3 text-base font-medium text-gray-700 hover:bg-white hover:text-primary transition-colors rounded-md" onClick={() => setOpen(false)}>
-                Products
-              </Link>
-              <Link href="/contact" className="px-4 py-3 text-base font-medium text-gray-700 hover:bg-white hover:text-primary transition-colors rounded-md" onClick={() => setOpen(false)}>
-                Contact
-              </Link>
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={mobileNavLinkClass}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {/* Mobile CTA Buttons */}
               <div className="mt-4 px-4 grid grid-cols-1 gap-3">
                 <Button asChild variant="outline" className="w-full justify-start">
-                  <a href="tel:+919000000000" aria-label="Call" onClick={() => setOpen(false)}>
+                  <a href={`tel:${phoneNumber}`} aria-label="Call" onClick={() => setOpen(false)}>
                     <Phone className="size-4 mr-2" /> Call Now
                   </a>
                 </Button>

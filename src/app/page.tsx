@@ -20,7 +20,7 @@ export default function Home() {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Button asChild size="lg">
-                <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer">Enquire Now</a>
+                <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">Enquire Now</a>
               </Button>
               <Button variant="outline" asChild size="lg">
                 <Link href="/products">Explore Products</Link>
@@ -81,7 +81,7 @@ export default function Home() {
           <p className="mt-2 text-muted-foreground">Get a fast quote with delivery timelines for your location.</p>
           <div className="mt-6 flex justify-center">
             <Button asChild size="lg">
-              <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer">Quick Enquiry on WhatsApp</a>
+              <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">Quick Enquiry on WhatsApp</a>
             </Button>
           </div>
         </div>

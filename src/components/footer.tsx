@@ -70,12 +70,29 @@ export function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
+                <MapPin className="size-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-white font-medium">VIP Plastics</p>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Plot No. 368 & 369, Sector 56,<br />
+                    Phase V, HSIIDC, Kundli,<br />
+                    Haryana - 131028
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
                 <Phone className="size-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white font-medium">Call Us</p>
-                  <a href="tel:+919000000000" className="text-gray-300 hover:text-primary transition-colors">
-                    +91 90000 00000
-                  </a>
+                  <div className="space-y-1">
+                    <a href="tel:+919999009090" className="text-gray-300 hover:text-primary transition-colors block">
+                      +91 9999009090
+                    </a>
+                    <a href="tel:+919999997797" className="text-gray-300 hover:text-primary transition-colors block">
+                      +91 9999997797
+                    </a>
+                  </div>
                 </div>
               </div>
               
@@ -83,23 +100,15 @@ export function Footer() {
                 <Mail className="size-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white font-medium">Email Us</p>
-                  <a href="mailto:sales@vipplastics.in" className="text-gray-300 hover:text-primary transition-colors">
-                    sales@vipplastics.in
+                  <a href="mailto:care@vipplastics.in" className="text-gray-300 hover:text-primary transition-colors">
+                    care@vipplastics.in
                   </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3">
-                <MapPin className="size-5 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-white font-medium">Location</p>
-                  <p className="text-gray-300">Hyderabad, Telangana, India</p>
                 </div>
               </div>
 
               <div className="pt-4">
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white">
-                  <a href="https://wa.me/919000000000" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="size-4 mr-2" />
                     WhatsApp Us
                   </a>
