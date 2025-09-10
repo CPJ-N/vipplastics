@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
+import { HeroSlider } from "@/components/hero-slider";
+import { ClientsSection } from "@/components/clients-section";
 
 export default function Home() {
   return (
@@ -26,15 +27,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-            <Image
-              src="/slider-2.jpg"
-              alt="VIP Plastics products and manufacturing"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <HeroSlider />
         </div>
       </section>
 
@@ -77,6 +70,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Clients */}
+      <ClientsSection />
 
       {/* CTA */}
       <section className="border-t">
