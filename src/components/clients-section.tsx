@@ -95,21 +95,6 @@ export function ClientsSection() {
           ))}
         </div>
 
-        {/* Trust badges */}
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>500+ Happy Clients</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span>15+ Years Experience</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-primary rounded-full"></div>
-            <span>Pan-India Delivery</span>
-          </div>
-        </div>
       </div>
     </section>
   );
