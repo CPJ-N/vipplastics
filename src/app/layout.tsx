@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     "VIP Plastics manufactures high‑quality plastic crates, pallets, bins, planters and custom solutions with flawless quality and on‑time delivery.",
   metadataBase: new URL("https://vipplastics.in"),
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "VIP Plastics — Industrial Crates, Pallets, Bins & Planters",
     description:
