@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from "lucide-react";
 
 export const metadata = {
@@ -29,13 +30,13 @@ export default function ContactPage() {
         {/* Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {/* Phone Card */}
-          <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex flex-col items-center text-center">
+          <Card className="hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center text-center pt-6">
               <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary/80 rounded-lg flex items-center justify-center mb-6">
                 <Phone className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Call Us Directly</h3>
-              <p className="text-gray-600 mb-6">Speak with our sales experts</p>
+              <CardTitle className="mb-2">Call Us Directly</CardTitle>
+              <CardDescription className="mb-6">Speak with our sales experts</CardDescription>
               <div className="space-y-3">
                 <a 
                   href="tel:+919999009090" 
@@ -50,54 +51,57 @@ export default function ContactPage() {
                   +91 99 9999 7797
                 </a>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
           {/* Email Card */}
-          <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex flex-col items-center text-center">
+          <Card className="hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center text-center pt-6">
               <div className="w-16 h-16 bg-gradient-to-r from-secondary to-secondary/80 rounded-lg flex items-center justify-center mb-6">
                 <Mail className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Email Support</h3>
-              <p className="text-gray-600 mb-6">Get detailed responses within 24 hours</p>
+              <CardTitle className="mb-2">Email Support</CardTitle>
+              <CardDescription className="mb-6">Get detailed responses within 24 hours</CardDescription>
               <a 
                 href="mailto:care@vipplastics.in" 
                 className="text-lg font-semibold text-primary hover:text-primary/80 transition-colors"
               >
                 care@vipplastics.in
               </a>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
 
           {/* WhatsApp Card */}
-          <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex flex-col items-center text-center">
+          <Card className="hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center text-center pt-6">
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-6">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">WhatsApp Chat</h3>
-              <p className="text-gray-600 mb-6">Instant responses for urgent queries</p>
+              <CardTitle className="mb-2">WhatsApp Chat</CardTitle>
+              <CardDescription className="mb-6">Instant responses for urgent queries</CardDescription>
               <Button asChild className="bg-green-600 hover:bg-green-700 text-white">
                 <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Start Chat
                 </a>
               </Button>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Send className="h-5 w-5 text-white" />
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <Send className="h-5 w-5 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">Send Us a Message</h2>
-              </div>
+              </CardHeader>
+              <CardContent>
 
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -203,69 +207,82 @@ export default function ContactPage() {
                   Send Message
                 </Button>
               </form>
-            </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Company Information */}
           <div className="space-y-8">
             {/* Address Card */}
-            <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-white" />
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  <CardTitle>Visit Our Office</CardTitle>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Visit Our Office</h3>
-              </div>
-              <div className="space-y-2 text-gray-600">
-                <p className="font-semibold text-gray-900">VIP Plastics</p>
-                <p>Plot No. 368 & 369, Sector 56</p>
-                <p>Phase V, HSIIDC, Kundli</p>
-                <p>Haryana - 131028, India</p>
-              </div>
-            </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-gray-600">
+                  <p className="font-semibold text-gray-900">VIP Plastics</p>
+                  <p>Plot No. 368 & 369, Sector 56</p>
+                  <p>Phase V, HSIIDC, Kundli</p>
+                  <p>Haryana - 131028, India</p>
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Business Hours Card */}
-            <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                  <Clock className="h-5 w-5 text-white" />
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-white" />
+                  </div>
+                  <CardTitle>Business Hours</CardTitle>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">Business Hours</h3>
-              </div>
-              <div className="space-y-3 text-gray-600">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="font-semibold">9:00 AM - 6:00 PM</span>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturday</span>
+                    <span className="font-semibold">9:00 AM - 1:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sunday</span>
+                    <span className="font-semibold">Closed</span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-semibold">9:00 AM - 1:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="font-semibold">Closed</span>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
             {/* Quick Links Card */}
-            <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Links</h3>
-              <div className="space-y-4">
-                <Link 
-                  href="/products" 
-                  className="block text-primary hover:text-primary/80 transition-colors font-medium"
-                >
-                  Browse Product Catalog →
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="block text-primary hover:text-primary/80 transition-colors font-medium"
-                >
-                  About Our Company →
-                </Link>
-              </div>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Quick Links</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <Link 
+                    href="/products" 
+                    className="block text-primary hover:text-primary/80 transition-colors font-medium"
+                  >
+                    Browse Product Catalog →
+                  </Link>
+                  <Link 
+                    href="/about" 
+                    className="block text-primary hover:text-primary/80 transition-colors font-medium"
+                  >
+                    About Our Company →
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

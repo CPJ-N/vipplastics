@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { categories } from "@/data/categories";
 import { ClientsSection } from "@/components/clients-section";
 import { useState, useEffect } from "react";
@@ -109,10 +110,12 @@ export default function Home() {
             ["Custom solutions", "Branding, colors, and sizes"],
             ["Competitive pricing", "Scale with transparent quotes"],
           ].map(([title, desc]) => (
-            <div key={title} className="rounded-lg border p-4">
-              <h3 className="font-semibold">{title}</h3>
-              <p className="text-sm text-muted-foreground">{desc}</p>
-            </div>
+            <Card key={title}>
+              <CardContent className="pt-6">
+                <CardTitle className="text-base">{title}</CardTitle>
+                <CardDescription className="mt-2">{desc}</CardDescription>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
@@ -128,12 +131,14 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.slice(0, 6).map((item) => (
-              <Link key={item.slug} href={`/products/${item.slug}`} className="group rounded-xl border overflow-hidden hover:shadow-sm transition-shadow">
-                <div className="aspect-[4/3] bg-muted/50" />
-                <div className="p-4">
-                  <h3 className="font-semibold group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">Explore sizes, specs and options</p>
-                </div>
+              <Link key={item.slug} href={`/products/${item.slug}`} className="group">
+                <Card className="overflow-hidden hover:shadow-sm transition-shadow">
+                  <div className="aspect-[4/3] bg-muted/50" />
+                  <CardContent className="p-4">
+                    <CardTitle className="group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                    <CardDescription>Explore sizes, specs and options</CardDescription>
+                  </CardContent>
+                </Card>
               </Link>
             ))}
           </div>

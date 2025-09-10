@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 
 export const metadata = {
   title: "About Us",
@@ -76,29 +77,35 @@ export default function AboutPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-center mb-12">Why Choose VIP Plastics</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="text-center p-6 rounded-xl border bg-white shadow-sm">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🎯</span>
-            </div>
-            <h3 className="font-bold text-lg mb-3">100% On-Time Delivery</h3>
-            <p className="text-muted-foreground">Commitment to delivery with penalty clause and real-time SMS alerts</p>
-          </div>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <CardTitle className="mb-3">100% On-Time Delivery</CardTitle>
+              <CardDescription>Commitment to delivery with penalty clause and real-time SMS alerts</CardDescription>
+            </CardContent>
+          </Card>
           
-          <div className="text-center p-6 rounded-xl border bg-white shadow-sm">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🔬</span>
-            </div>
-            <h3 className="font-bold text-lg mb-3">Advanced Technology</h3>
-            <p className="text-muted-foreground">First in India to use optoelectronic technology for plastic granule sorting</p>
-          </div>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🔬</span>
+              </div>
+              <CardTitle className="mb-3">Advanced Technology</CardTitle>
+              <CardDescription>First in India to use optoelectronic technology for plastic granule sorting</CardDescription>
+            </CardContent>
+          </Card>
           
-          <div className="text-center p-6 rounded-xl border bg-white shadow-sm">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">⚡</span>
-            </div>
-            <h3 className="font-bold text-lg mb-3">Continuous Innovation</h3>
-            <p className="text-muted-foreground">Constant R&D investment for product quality improvement and new launches</p>
-          </div>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <CardTitle className="mb-3">Continuous Innovation</CardTitle>
+              <CardDescription>Constant R&D investment for product quality improvement and new launches</CardDescription>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -138,7 +145,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-2">
               <div className="relative">
-                <div className="absolute -top-6 -left-6 text-6xl text-primary/20 font-serif">"</div>
+                <div className="absolute -top-6 -left-6 text-6xl text-primary/20 font-serif">&ldquo;</div>
                 <blockquote className="text-lg leading-relaxed text-gray-700 italic mb-6 pl-8">
                   VIP Plastics has traversed many milestones since its inception in 2013. At each milestone we have endeavored to serve our customers in a way they feel benefited. Our focus has been on manufacturing products with best technology, sales with strong distribution network and continuous product upgradation by our team in close association with our key customers.
                 </blockquote>
@@ -163,29 +170,37 @@ export default function AboutPage() {
         <h2 className="text-3xl font-bold text-center mb-12">Consolidated Manufacturing Facilities</h2>
         <div className="bg-gradient-to-br from-primary/5 to-secondary/10 rounded-2xl p-8 lg:p-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-primary/20">
-              <h3 className="font-bold text-lg mb-4 text-gray-900">Covered Area</h3>
-              <div className="text-3xl font-bold text-primary mb-1">33,000</div>
-              <p className="text-primary/80 font-medium">sq. feet</p>
-            </div>
+            <Card className="text-center border-primary/20">
+              <CardContent className="pt-6">
+                <CardTitle className="mb-4 text-gray-900">Covered Area</CardTitle>
+                <div className="text-3xl font-bold text-primary mb-1">33,000</div>
+                <p className="text-primary/80 font-medium">sq. feet</p>
+              </CardContent>
+            </Card>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-secondary/20">
-              <h3 className="font-bold text-lg mb-4 text-gray-900">Capacity to Process</h3>
-              <div className="text-3xl font-bold text-secondary mb-1">10</div>
-              <p className="text-secondary/80 font-medium">Metric tons per day</p>
-            </div>
+            <Card className="text-center border-secondary/20">
+              <CardContent className="pt-6">
+                <CardTitle className="mb-4 text-gray-900">Capacity to Process</CardTitle>
+                <div className="text-3xl font-bold text-secondary mb-1">10</div>
+                <p className="text-secondary/80 font-medium">Metric tons per day</p>
+              </CardContent>
+            </Card>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-primary/20">
-              <h3 className="font-bold text-lg mb-4 text-gray-900">Injection Molding Machines</h3>
-              <div className="text-2xl font-bold text-primary mb-1">450 - 775</div>
-              <p className="text-primary/80 font-medium">tons capacity</p>
-            </div>
+            <Card className="text-center border-primary/20">
+              <CardContent className="pt-6">
+                <CardTitle className="mb-4 text-gray-900">Injection Molding Machines</CardTitle>
+                <div className="text-2xl font-bold text-primary mb-1">450 - 775</div>
+                <p className="text-primary/80 font-medium">tons capacity</p>
+              </CardContent>
+            </Card>
             
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-secondary/20">
-              <h3 className="font-bold text-lg mb-4 text-gray-900">Plastic Color Sortex</h3>
-              <div className="text-3xl font-bold text-secondary mb-1">1</div>
-              <p className="text-secondary/80 font-medium">Metric ton per day</p>
-            </div>
+            <Card className="text-center border-secondary/20">
+              <CardContent className="pt-6">
+                <CardTitle className="mb-4 text-gray-900">Plastic Color Sortex</CardTitle>
+                <div className="text-3xl font-bold text-secondary mb-1">1</div>
+                <p className="text-secondary/80 font-medium">Metric ton per day</p>
+              </CardContent>
+            </Card>
           </div>
           
           <div className="mt-8 text-center">

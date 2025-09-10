@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { categories } from "@/data/categories";
 
 export const metadata = {
@@ -14,12 +15,14 @@ export default function ProductsPage() {
 
       <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((c) => (
-          <Link key={c.slug} href={`/products/${c.slug}`} className="group rounded-xl border overflow-hidden hover:shadow-sm transition-shadow">
-            <div className="aspect-[4/3] bg-muted/50" />
-            <div className="p-4">
-              <h2 className="font-semibold group-hover:text-primary transition-colors">{c.title}</h2>
-              <p className="text-sm text-muted-foreground">View sizes and specs</p>
-            </div>
+          <Link key={c.slug} href={`/products/${c.slug}`} className="group">
+            <Card className="overflow-hidden hover:shadow-sm transition-shadow">
+              <div className="aspect-[4/3] bg-muted/50" />
+              <CardContent className="p-4">
+                <CardTitle className="group-hover:text-primary transition-colors">{c.title}</CardTitle>
+                <CardDescription>View sizes and specs</CardDescription>
+              </CardContent>
+            </Card>
           </Link>
         ))}
       </div>
