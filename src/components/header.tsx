@@ -30,8 +30,8 @@ export function Header() {
             <Image
               src="/vip_logo.png"
               alt="VIP Plastics Logo"
-              width={130}
-              height={87}
+              width={240}
+              height={160}
               className="object-contain"
               priority
             />
