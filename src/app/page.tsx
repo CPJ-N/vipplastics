@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
 
@@ -25,7 +26,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[4/3] rounded-xl bg-muted/50"></div>
+          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <Image
+              src="/slider-2.jpg"
+              alt="VIP Plastics products and manufacturing"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </section>
 
