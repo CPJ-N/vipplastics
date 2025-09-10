@@ -1,33 +1,102 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
-import { HeroSlider } from "@/components/hero-slider";
 import { ClientsSection } from "@/components/clients-section";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      src: "/slider-1.jpg",
+      alt: "VIP Plastics industrial products showcase 1"
+    },
+    {
+      src: "/slider-2.jpg", 
+      alt: "VIP Plastics industrial products showcase 2"
+    },
+    {
+      src: "/slider-3.jpg",
+      alt: "VIP Plastics industrial products showcase 3"
+    }
+  ];
+
+  // Auto-advance slides every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
     <div className="font-sans">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="text-sm font-semibold text-primary mb-3">Trusted by manufacturers and retailers</p>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+      <section className="relative min-h-[70vh] lg:min-h-[80vh] overflow-hidden">
+        {/* Background Images */}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              className="object-cover"
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+
+        {/* Overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 h-full flex items-center">
+          <div className="max-w-2xl lg:max-w-3xl text-white">
+            <p className="text-sm font-semibold text-primary-foreground mb-3 bg-primary/90 inline-block px-3 py-1 rounded-full">
+              Trusted by manufacturers and retailers
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
               Flawless Quality Products With Timely Delivery
             </h1>
-            <p className="mt-4 text-muted-foreground max-w-prose">
+            <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-prose leading-relaxed">
               Industrial-grade plastic crates, pallets, bins, and planters designed for durability and efficiency. Custom sizes and branding available.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-xl">
                 <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">Enquire Now</a>
               </Button>
-              <Button variant="outline" asChild size="lg">
+              <Button variant="outline" asChild size="lg" className="border-white bg-white/10 text-white hover:bg-white hover:text-gray-900 shadow-lg backdrop-blur-sm">
                 <Link href="/products">Explore Products</Link>
               </Button>
             </div>
           </div>
-          <HeroSlider />
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? "bg-white scale-110 shadow-lg" 
+                  : "bg-white/60 hover:bg-white/80"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
