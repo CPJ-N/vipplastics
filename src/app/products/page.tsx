@@ -8,6 +8,21 @@ export const metadata = {
   description: "Explore VIP Plastics product categories and specifications.",
 };
 
+// Helper function to get the correct image path for each category
+function getImagePath(slug: string): string {
+  const imageMap: Record<string, string> = {
+    'fruits-and-vegetables-crates': '/fruits-and-vegetable-crates.jpg',
+    'air-coolers': '/air-coolers.jpg',
+    'industrial-crates': '/industrial-crates.jpg',
+    'dairy-crates': '/dairy-crates.jpg',
+    'planters': '/planters.jpg',
+    'pallets': '/pallets.jpg',
+    'bins': '/bins.jpg',
+  };
+  
+  return imageMap[slug] || `/${slug}.jpg`;
+}
+
 export default function ProductsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -20,7 +35,7 @@ export default function ProductsPage() {
             <Card className="overflow-hidden hover:shadow-sm transition-shadow p-0 gap-0">
               <div className="aspect-[4/3] relative bg-gray-50">
                 <Image
-                  src={`/${c.slug === 'fruits-and-vegetables-crates' ? 'fruits-and-vegetable-crates' : c.slug}.jpg`}
+                  src={getImagePath(c.slug)}
                   alt={c.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"

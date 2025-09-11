@@ -48,71 +48,101 @@ export default async function CategoryPage({ params }: Props) {
           <h2 className="text-2xl font-semibold mb-6">Available Models</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.products.map((product) => (
-              <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] relative bg-gray-50">
+              <Card key={product.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-md h-full flex flex-col">
+                {/* Image Container */}
+                <div className="aspect-[4/3] relative bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
+                  {/* Overlay gradient for better text contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">{product.name}</CardTitle>
-                  <CardDescription>Model: {product.model}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {/* Specifications */}
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="flex items-center gap-2">
-                      <Ruler className="h-4 w-4 text-primary" />
-                      <span className="text-muted-foreground">Dimensions:</span>
-                    </div>
-                    <span className="font-medium">{product.dimensions}</span>
-                    
-                    <div className="flex items-center gap-2">
-                      <Weight className="h-4 w-4 text-primary" />
-                      <span className="text-muted-foreground">Weight:</span>
-                    </div>
-                    <span className="font-medium">{product.weight}</span>
-                  </div>
 
-                  {/* Colors */}
-                  {product.colors && (
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-muted-foreground">Colors:</span>
-                      <div className="flex gap-1">
-                        {product.colors.map((color) => (
-                          <span key={color} className="text-xs bg-gray-100 px-2 py-1 rounded">
-                            {color}
-                          </span>
-                        ))}
+                {/* Content Container - Flex grow to fill remaining space */}
+                <div className="flex flex-col flex-grow">
+                  {/* Header */}
+                  <CardHeader className="pb-3 pt-6 flex-shrink-0">
+                    <CardTitle className="text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors duration-200">
+                      {product.name}
+                    </CardTitle>
+                    <CardDescription className="text-sm bg-primary/10 text-primary px-2 py-1 rounded-md inline-block w-fit">
+                      Model: {product.model}
+                    </CardDescription>
+                  </CardHeader>
+
+                  {/* Main Content - Flex grow */}
+                  <CardContent className="space-y-4 flex-grow flex flex-col">
+                    {/* Specifications Grid */}
+                    <div className="grid grid-cols-1 gap-3 text-sm bg-gray-50/80 p-3 rounded-lg">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Ruler className="h-4 w-4 text-primary" />
+                          <span className="text-muted-foreground font-medium">Dimensions:</span>
+                        </div>
+                        <span className="font-semibold text-gray-900 text-xs">{product.dimensions}</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Weight className="h-4 w-4 text-primary" />
+                          <span className="text-muted-foreground font-medium">Weight:</span>
+                        </div>
+                        <span className="font-semibold text-gray-900 text-xs">{product.weight}</span>
                       </div>
                     </div>
-                  )}
 
-                  {/* Features */}
-                  <div>
-                    <span className="text-sm font-medium text-gray-700 mb-2 block">Features:</span>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {product.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div className="w-1 h-1 bg-primary rounded-full"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    {/* Colors */}
+                    {product.colors && (
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-sm text-muted-foreground font-medium">Colors:</span>
+                        <div className="flex gap-1 flex-wrap">
+                          {product.colors.slice(0, 4).map((color) => (
+                            <span key={color} className="text-xs bg-gradient-to-r from-primary/20 to-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                              {color}
+                            </span>
+                          ))}
+                          {product.colors.length > 4 && (
+                            <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
+                              +{product.colors.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
-                  {/* CTA Button */}
-                  <Button asChild className="w-full" size="sm">
-                    <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      Get Quote
-                    </a>
-                  </Button>
-                </CardContent>
+                    {/* Features - Limited to first 3 for consistency */}
+                    <div className="flex-grow">
+                      <span className="text-sm font-semibold text-gray-900 mb-2 block">Key Features:</span>
+                      <ul className="text-xs text-muted-foreground space-y-1.5">
+                        {product.features.slice(0, 3).map((feature, index) => (
+                          <li key={index} className="flex items-start gap-2 leading-relaxed">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                            <span className="line-clamp-1">{feature}</span>
+                          </li>
+                        ))}
+                        {product.features.length > 3 && (
+                          <li className="text-primary text-xs font-medium">
+                            +{product.features.length - 3} more features
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+
+                    {/* CTA Button - Always at bottom */}
+                    <div className="pt-2 mt-auto">
+                      <Button asChild className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md hover:shadow-lg transition-all duration-200" size="sm">
+                        <a href="https://wa.me/919999009090" target="_blank" rel="noopener noreferrer">
+                          <MessageCircle className="h-4 w-4 mr-2" />
+                          Get Quote
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </div>
               </Card>
             ))}
           </div>
