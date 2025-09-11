@@ -132,8 +132,16 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.slice(0, 6).map((item) => (
               <Link key={item.slug} href={`/products/${item.slug}`} className="group">
-                <Card className="overflow-hidden hover:shadow-sm transition-shadow">
-                  <div className="aspect-[4/3] bg-muted/50" />
+                <Card className="overflow-hidden hover:shadow-sm transition-shadow p-0 gap-0">
+                  <div className="aspect-[4/3] relative bg-gray-50">
+                    <Image
+                      src={`/${item.slug === 'fruits-and-vegetables-crates' ? 'fruits-and-vegetable-crates' : item.slug}.jpg`}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                   <CardContent className="p-4">
                     <CardTitle className="group-hover:text-primary transition-colors">{item.title}</CardTitle>
                     <CardDescription>Explore sizes, specs and options</CardDescription>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { categories } from "@/data/categories";
 
@@ -16,8 +17,16 @@ export default function ProductsPage() {
       <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((c) => (
           <Link key={c.slug} href={`/products/${c.slug}`} className="group">
-            <Card className="overflow-hidden hover:shadow-sm transition-shadow">
-              <div className="aspect-[4/3] bg-muted/50" />
+            <Card className="overflow-hidden hover:shadow-sm transition-shadow p-0 gap-0">
+              <div className="aspect-[4/3] relative bg-gray-50">
+                <Image
+                  src={`/${c.slug === 'fruits-and-vegetables-crates' ? 'fruits-and-vegetable-crates' : c.slug}.jpg`}
+                  alt={c.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <CardContent className="p-4">
                 <CardTitle className="group-hover:text-primary transition-colors">{c.title}</CardTitle>
                 <CardDescription>View sizes and specs</CardDescription>
