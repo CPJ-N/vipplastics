@@ -303,7 +303,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our satisfied customers have to say about our products and services.
+              Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about our products and services.
             </p>
           </div>
           
@@ -360,7 +360,7 @@ export default function Home() {
                     ))}
                   </div>
                   <blockquote className="text-gray-700 italic mb-6 leading-relaxed">
-                    "{testimonial.testimonial}"
+                    &ldquo;{testimonial.testimonial}&rdquo;
                   </blockquote>
                   <div className="border-t pt-4">
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
