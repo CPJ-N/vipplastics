@@ -1,163 +1,95 @@
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 
 export const metadata = {
-  title: "About Us",
-  description: "Established in 2013, VIP Plastics is a leading manufacturer of plastic material handling products with 100% on-time delivery commitment.",
+  title: "About VIP Plastics",
+  description: "Leading plastic manufacturing company since 2013. ISO certified facility with 33,000 sq.ft production capacity and 100% on-time delivery guarantee.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div>
       {/* Hero Section */}
-      <div className="relative mb-16 overflow-hidden rounded-2xl">
-        {/* Background Image */}
-        <div className="relative h-[60vh] min-h-[500px]">
-          <Image
-            src="/vip-plastics-181374-585418.jpg"
-            alt="VIP Plastics Manufacturing Facility"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
-        </div>
-        
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white max-w-4xl px-4">
-            <div className="flex justify-center mb-8">
-              <Image
-                src="/about-logo.png"
-                alt="VIP Plastics Logo"
-                width={250}
-                height={167}
-                className="object-contain drop-shadow-lg"
-              />
+      <section className="relative h-[50vh] overflow-hidden">
+        <Image
+          src="/vip-plastics-181374-585418.jpg"
+          alt="VIP Plastics Manufacturing Facility"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
+          <div className="text-white max-w-3xl">
+            <div className="mb-4 flex items-center gap-4 text-sm font-medium">
+              <span className="bg-white/20 px-3 py-1 rounded">EST. 2013</span>
+              <span className="bg-white/20 px-3 py-1 rounded">ISO CERTIFIED</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 drop-shadow-lg">
-              About VIP Plastics
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
+              VIP Plastics Manufacturing
             </h1>
-            <p className="text-xl sm:text-2xl leading-relaxed drop-shadow-md max-w-3xl mx-auto">
-              Established in 2013, VIP Plastics is a leading manufacturer committed to delivering high-quality plastic solutions with innovation and reliability.
-            </p>
-            <div className="mt-8 inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-              <span className="text-sm font-semibold">Advanced Manufacturing</span>
-              <span className="w-1 h-1 bg-white rounded-full"></span>
-              <span className="text-sm font-semibold">100% On-Time Delivery</span>
-              <span className="w-1 h-1 bg-white rounded-full"></span>
-              <span className="text-sm font-semibold">Innovation Leader</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Company Story */}
-      <section className="mb-16">
-        <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Our Story</h2>
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-6">
-              Established in 2013, VIP Plastics is engaged in manufacturing and wholesaling of Plastic material handling Crates, Fruit and Vegetable crates, Industrial Crates, Dairy Crates, Planters, Plastic Pallets, Industrial Air Coolers and more.
-            </p>
-            <p className="mb-6">
-              We are an organisation that commits to <strong>100% on-time delivery with penalty clause</strong>. We have real time SMS alert facility at every stage of the progress for your order.
-            </p>
-            <p className="mb-6">
-              We are the <strong>first company in India to use optoelectronic technology for sorting plastic granules</strong>, ensuring superior quality in our manufacturing process.
-            </p>
-            <p>
-              The market is changing everyday and so are the requirements of our clients. We at VIP Plastics are constantly investing in research and development to improve the quality of our existing products and to launch new and upgraded products.
+            <p className="text-lg text-gray-200">
+              Industrial plastic solutions provider with state-of-the-art manufacturing facility and commitment to quality excellence.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Key Highlights */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Choose VIP Plastics</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <CardTitle className="mb-3">100% On-Time Delivery</CardTitle>
-              <CardDescription>Commitment to delivery with penalty clause and real-time SMS alerts</CardDescription>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🔬</span>
-              </div>
-              <CardTitle className="mb-3">Advanced Technology</CardTitle>
-              <CardDescription>First in India to use optoelectronic technology for plastic granule sorting</CardDescription>
-            </CardContent>
-          </Card>
-          
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚡</span>
-              </div>
-              <CardTitle className="mb-3">Continuous Innovation</CardTitle>
-              <CardDescription>Constant R&D investment for product quality improvement and new launches</CardDescription>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="mb-16">
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
-            <h2 className="font-bold text-2xl mb-4 text-primary">Our Mission</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Deliver high‑quality plastic solutions that improve operational efficiency for our customers while maintaining our commitment to 100% on-time delivery and continuous innovation.
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-2xl p-8">
-            <h2 className="font-bold text-2xl mb-4 text-secondary">Our Vision</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Be the most trusted brand in plastic material handling products in India, setting industry standards through technology and customer-centric approach.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Message from Director */}
-      <section className="mb-16">
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 lg:p-12">
-          <h2 className="text-3xl font-bold text-center mb-12">A Message from our Director and Founder</h2>
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
-            <div className="lg:col-span-1 flex justify-center">
-              <div className="relative">
-                <Image
-                  src="/Ashok_Kapoor.jpg"
-                  alt="Ashok Kapoor - Director and Founder"
-                  width={250}
-                  height={300}
-                  className="rounded-2xl shadow-lg object-cover"
-                />
+      {/* Company Overview */}
+      <section className="border-t">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Company Overview</h2>
+              <div className="space-y-6 text-gray-700">
+                <p className="leading-relaxed">
+                  <strong>Established in 2013</strong>, VIP Plastics is a leading manufacturer specializing in plastic material handling products including industrial crates, fruit and vegetable crates, dairy crates, pallets, bins, planters, and industrial air coolers.
+                </p>
+                <p className="leading-relaxed">
+                  Our organization maintains a commitment to <strong className="text-primary">100% on-time delivery with penalty clause</strong> and provides real-time SMS tracking throughout the production and delivery process.
+                </p>
+                <p className="leading-relaxed">
+                  As the <strong className="text-primary">first company in India to implement optoelectronic technology</strong> for plastic granule sorting, we ensure superior raw material quality and consistent product specifications.
+                </p>
+                <p className="leading-relaxed">
+                  The market is changing constantly, and we at VIP Plastics are continuously investing in research and development to improve existing product quality and launch new, upgraded solutions.
+                </p>
               </div>
             </div>
-            <div className="lg:col-span-2">
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 text-6xl text-primary/20 font-serif">&ldquo;</div>
-                <blockquote className="text-lg leading-relaxed text-gray-700 italic mb-6 pl-8">
-                  VIP Plastics has traversed many milestones since its inception in 2013. At each milestone we have endeavored to serve our customers in a way they feel benefited. Our focus has been on manufacturing products with best technology, sales with strong distribution network and continuous product upgradation by our team in close association with our key customers.
-                </blockquote>
-                <blockquote className="text-lg leading-relaxed text-gray-700 italic mb-8 pl-8">
-                  VIP Plastics is in an exciting phase of its journey and is poised to leap miles ahead. We are looking to your continued support in journey.
-                </blockquote>
-                <div className="pl-8">
-                  <div className="border-l-4 border-primary pl-4">
-                    <p className="font-bold text-xl text-gray-900">Ashok Kapoor</p>
-                    <p className="text-primary font-semibold">Director and Founder</p>
-                    <p className="text-sm text-muted-foreground mt-1">VIP Plastics</p>
-                  </div>
+            
+            <div className="bg-gray-50 p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-6">Technical Specifications</h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Year Established</span>
+                  <span className="font-semibold">2013</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Manufacturing Area</span>
+                  <span className="font-semibold">33,000 sq. ft.</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Daily Production Capacity</span>
+                  <span className="font-semibold">10 Metric Tons</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Injection Molding Capacity</span>
+                  <span className="font-semibold">450-775 tons</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Quality Certification</span>
+                  <span className="font-semibold">ISO 9001:2015</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Material Quality</span>
+                  <span className="font-semibold">100% Virgin Plastic</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-200 pb-2">
+                  <span className="text-gray-600">Delivery Performance</span>
+                  <span className="font-semibold text-primary">100% On-Time</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Active Industrial Clients</span>
+                  <span className="font-semibold">500+</span>
                 </div>
               </div>
             </div>
@@ -165,72 +97,115 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Manufacturing Facilities */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Consolidated Manufacturing Facilities</h2>
-        <div className="bg-gradient-to-br from-primary/5 to-secondary/10 rounded-2xl p-8 lg:p-12">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center border-primary/20">
-              <CardContent className="pt-6">
-                <CardTitle className="mb-4 text-gray-900">Covered Area</CardTitle>
-                <div className="text-3xl font-bold text-primary mb-1">33,000</div>
-                <p className="text-primary/80 font-medium">sq. feet</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center border-secondary/20">
-              <CardContent className="pt-6">
-                <CardTitle className="mb-4 text-gray-900">Capacity to Process</CardTitle>
-                <div className="text-3xl font-bold text-secondary mb-1">10</div>
-                <p className="text-secondary/80 font-medium">Metric tons per day</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center border-primary/20">
-              <CardContent className="pt-6">
-                <CardTitle className="mb-4 text-gray-900">Injection Molding Machines</CardTitle>
-                <div className="text-2xl font-bold text-primary mb-1">450 - 775</div>
-                <p className="text-primary/80 font-medium">tons capacity</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center border-secondary/20">
-              <CardContent className="pt-6">
-                <CardTitle className="mb-4 text-gray-900">Plastic Color Sortex</CardTitle>
-                <div className="text-3xl font-bold text-secondary mb-1">1</div>
-                <p className="text-secondary/80 font-medium">Metric ton per day</p>
-              </CardContent>
-            </Card>
+      {/* Manufacturing Excellence */}
+      <section className="border-t bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Manufacturing Excellence</h2>
+            <p className="text-gray-600 max-w-4xl">
+              Our state-of-the-art manufacturing facility combines advanced technology with skilled expertise to deliver consistent quality and performance across all product lines.
+            </p>
           </div>
           
-          <div className="mt-8 text-center">
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Our state-of-the-art manufacturing facility is equipped with advanced machinery and technology to ensure consistent quality and efficient production. 
-              With our robust infrastructure, we maintain the highest standards while meeting diverse customer requirements.
-            </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 border border-gray-200">
+              <div className="text-primary font-semibold mb-2">PRODUCTION TECHNOLOGY</div>
+              <h3 className="font-bold text-gray-900 mb-3">Advanced Injection Molding</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Multiple injection molding machines with 450-775 ton capacity for precision manufacturing and consistent quality output.
+              </p>
+            </div>
+            <div className="bg-white p-6 border border-gray-200">
+              <div className="text-primary font-semibold mb-2">QUALITY CONTROL</div>
+              <h3 className="font-bold text-gray-900 mb-3">Optoelectronic Sorting</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                First in India to implement optoelectronic plastic granule sorting technology ensuring superior raw material quality.
+              </p>
+            </div>
+            <div className="bg-white p-6 border border-gray-200">
+              <div className="text-primary font-semibold mb-2">DELIVERY COMMITMENT</div>
+              <h3 className="font-bold text-gray-900 mb-3">100% On-Time Performance</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Guaranteed delivery schedule with penalty clause and real-time SMS tracking at every production stage.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Company Stats */}
-      <section className="text-center">
-        <h2 className="text-3xl font-bold mb-12">Our Achievements</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-6">
-            <div className="text-4xl font-bold text-primary mb-2">2013</div>
-            <p className="text-muted-foreground">Established</p>
+      {/* Mission & Vision */}
+      <section className="border-t">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-gray-50 p-8 border-l-4 border-primary">
+              <h2 className="font-bold text-2xl mb-4 text-gray-900">Mission Statement</h2>
+              <p className="text-gray-700 leading-relaxed">
+                To deliver precision-engineered plastic solutions that enhance operational efficiency for industrial clients while maintaining our commitment to 100% on-time delivery and continuous technological advancement.
+              </p>
+            </div>
+            <div className="bg-gray-50 p-8 border-l-4 border-secondary">
+              <h2 className="font-bold text-2xl mb-4 text-gray-900">Vision Statement</h2>
+              <p className="text-gray-700 leading-relaxed">
+                To be the most trusted manufacturer of plastic material handling products in India, setting industry standards through advanced manufacturing technology and customer-focused solutions.
+              </p>
+            </div>
           </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-primary mb-2">100%</div>
-            <p className="text-muted-foreground">On-Time Delivery</p>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="border-t bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-1">
+              <Image
+                src="/Ashok_Kapoor.jpg"
+                alt="Ashok Kapoor - Director and Founder"
+                width={300}
+                height={400}
+                className="object-cover border border-gray-200"
+              />
+            </div>
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Leadership Statement</h2>
+              <div className="space-y-4 text-gray-700">
+                <p className="leading-relaxed">
+                  VIP Plastics has achieved significant milestones since inception in 2013. Our focus remains on manufacturing products with advanced technology, maintaining strong distribution networks, and continuous product development in collaboration with key industrial clients.
+                </p>
+                <p className="leading-relaxed">
+                  VIP Plastics continues expanding its manufacturing capabilities and market presence, delivering innovative plastic solutions for diverse industrial applications.
+                </p>
+              </div>
+              <div className="mt-6 border-l-4 border-primary pl-4">
+                <p className="font-bold text-lg text-gray-900">Ashok Kapoor</p>
+                <p className="text-primary font-semibold">Director and Founder</p>
+              </div>
+            </div>
           </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-primary mb-2">1st</div>
-            <p className="text-muted-foreground">Optoelectronic Tech in India</p>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-primary mb-2">500+</div>
-            <p className="text-muted-foreground">Happy Clients</p>
+        </div>
+      </section>
+
+      {/* Manufacturing Facility Data */}
+      <section className="border-t">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Manufacturing Facility Specifications</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 border border-gray-200 text-center">
+              <div className="text-3xl font-bold text-primary mb-2">33,000</div>
+              <div className="text-sm text-gray-600">sq. ft. covered area</div>
+            </div>
+            <div className="bg-white p-6 border border-gray-200 text-center">
+              <div className="text-3xl font-bold text-primary mb-2">10</div>
+              <div className="text-sm text-gray-600">metric tons/day capacity</div>
+            </div>
+            <div className="bg-white p-6 border border-gray-200 text-center">
+              <div className="text-3xl font-bold text-primary mb-2">775</div>
+              <div className="text-sm text-gray-600">ton injection molding</div>
+            </div>
+            <div className="bg-white p-6 border border-gray-200 text-center">
+              <div className="text-3xl font-bold text-primary mb-2">1</div>
+              <div className="text-sm text-gray-600">MT/day sorting capacity</div>
+            </div>
           </div>
         </div>
       </section>

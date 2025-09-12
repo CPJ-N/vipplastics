@@ -15,8 +15,8 @@ export function Footer() {
               <Image
                 src="/vip_logo.png"
                 alt="VIP Plastics Logo"
-                width={80}
-                height={60}
+                width={120}
+                height={90}
                 className="object-contain"
               />
             </div>
