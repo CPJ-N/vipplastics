@@ -26,11 +26,11 @@ export default function Home() {
     }
   ];
 
-  // Auto-advance slides every 5 seconds
+  // Auto-advance slides every 1 second
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 1000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
